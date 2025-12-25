@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FREE-SHARE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to right, #00bfa5, #a0e7ff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .books-box {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 95%;
+      max-width: 900px;
+    }
+    .books-box h2 {
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #00bfa5;
+    }
+    details {
+      text-align: left;
+      margin: 10px 0 6px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    summary {
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .levels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .level-title {
+      font-weight: 600;
+      margin: 10px 0 6px;
+      color: #555;
+    }
+    .books-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .book-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #00bfa5;
+      color: #fff;
+      text-decoration: none;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .book-btn:hover {
+      transform: scale(1.08);
+      background-color: #00997a;
+    }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 12px;
+  background: linear-gradient(to right, #00bfa5, #a0e7ff);
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MAIN CONTAINER */
+.books-box {
+  background-color: #fff;
+  padding: clamp(18px, 4vw, 40px);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  text-align: center;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* TITLE */
+.books-box h2 {
+  margin-bottom: 24px;
+  font-weight: 800;
+  color: #00bfa5;
+  font-size: clamp(1.3rem, 4vw, 2.1rem);
+}
+
+/* DETAILS (TVET, REB, TSS) */
+details {
+  text-align: left;
+  margin: 12px 0;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: #fff;
+}
+
+/* SUMMARY HEADER */
+summary {
+  font-weight: 700;
+  cursor: pointer;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  list-style: none;
+}
+
+/* Remove default arrow */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom arrow */
+summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform 0.25s ease;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+/* LEVEL GRID */
+.levels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* LEVEL TITLE */
+.level-title {
+  font-weight: 700;
+  margin: 12px 0 8px;
+  color: #444;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+}
+
+/* BOOKS GRID */
+.books-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* BOOK BUTTON */
+.book-btn {
+  width: clamp(56px, 8vw, 80px);
+  height: clamp(56px, 8vw, 80px);
+  border-radius: 50%;
+  font-size: clamp(10px, 2.5vw, 13px);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00bfa5;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.book-btn:hover {
+  transform: scale(1.1);
+  background-color: #00997a;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 576px) {
+  body {
+    padding: 6px;
+  }
+
+  .books-box {
+    border-radius: 10px;
+  }
+
+  .levels {
+    grid-template-columns: 1fr;
+  }
+
+  .books-grid {
+    justify-content: center;
+  }
+}
+
+/* TABLET */
+@media (min-width: 577px) and (max-width: 991px) {
+  .levels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* LARGE SCREENS */
+@media (min-width: 1200px) {
+  .books-box {
+    max-width: 1200px;
+  }
+}
+  </style>
+  
+</head>
+<body>
+
+<div class="books-box">
+  <h2>📚 FREE-SHARE Books</h2>
+
+  <!-- TVET -->
+  <details>
+    <summary>TVET</summary>
+
+    <div class="levels">
+      <div>
+        <div class="level-title">Level 3</div>
+        <div class="books-grid">
+          <a class="book-btn" href="book/Physics Learners book S2.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/tvet/l3/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/tvet/l3/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/tvet/l3/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/tvet/l3/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/tvet/l3/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/tvet/l3/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/tvet/l3/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/tvet/l3/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/tvet/l3/book10.pdf" target="_blank">Book 10</a>
+          <a class="book-btn" href="books/tvet/l3/book11.pdf" target="_blank">Book 11</a>
+          <a class="book-btn" href="books/tvet/l3/book12.pdf" target="_blank">Book 12</a>
+          <a class="book-btn" href="books/tvet/l3/book13.pdf" target="_blank">Book 13</a>
+          <a class="book-btn" href="books/tvet/l3/book14.pdf" target="_blank">Book 14</a>
+          <a class="book-btn" href="books/tvet/l3/book15.pdf" target="_blank">Book 15</a>
+          <a class="book-btn" href="books/tvet/l3/book16.pdf" target="_blank">Book 16</a>
+          <a class="book-btn" href="books/tvet/l3/book17.pdf" target="_blank">Book 17</a>
+          <a class="book-btn" href="books/tvet/l3/book18.pdf" target="_blank">Book 18</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="level-title">Level 4</div>
+        <div class="books-grid">
+          <a class="book-btn" href="books/tvet/l4/book01.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/tvet/l4/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/tvet/l4/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/tvet/l4/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/tvet/l4/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/tvet/l4/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/tvet/l4/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/tvet/l4/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/tvet/l4/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/tvet/l4/book10.pdf" target="_blank">Book 10</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="level-title">Level 5</div>
+        <div class="books-grid">
+          <a class="book-btn" href="books/tvet/l5/book01.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/tvet/l5/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/tvet/l5/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/tvet/l5/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/tvet/l5/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/tvet/l5/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/tvet/l5/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/tvet/l5/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/tvet/l5/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/tvet/l5/book10.pdf" target="_blank">Book 10</a>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- REB -->
+  <details>
+    <summary>REB</summary>
+    <div class="levels">
+      <div>
+        <div class="level-title">S4</div>
+        <div class="books-grid">
+          <a class="book-btn" href="books/reb/s4/book01.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/reb/s4/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/reb/s4/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/reb/s4/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/reb/s4/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/reb/s4/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/reb/s4/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/reb/s4/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/reb/s4/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/reb/s4/book10.pdf" target="_blank">Book 10</a>
+          <a class="book-btn" href="books/reb/s4/book11.pdf" target="_blank">Book 11</a>
+          <a class="book-btn" href="books/reb/s4/book12.pdf" target="_blank">Book 12</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="level-title">S5</div>
+        <div class="books-grid">
+          <a class="book-btn" href="books/reb/s5/book01.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/reb/s5/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/reb/s5/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/reb/s5/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/reb/s5/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/reb/s5/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/reb/s5/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/reb/s5/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/reb/s5/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/reb/s5/book10.pdf" target="_blank">Book 10</a>
+          <a class="book-btn" href="books/reb/s5/book11.pdf" target="_blank">Book 11</a>
+          <a class="book-btn" href="books/reb/s5/book12.pdf" target="_blank">Book 12</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="level-title">S6</div>
+        <div class="books-grid">
+          <a class="book-btn" href="books/reb/s6/book01.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/reb/s6/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/reb/s6/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/reb/s6/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/reb/s6/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/reb/s6/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/reb/s6/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/reb/s6/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/reb/s6/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/reb/s6/book10.pdf" target="_blank">Book 10</a>
+          <a class="book-btn" href="books/reb/s6/book11.pdf" target="_blank">Book 11</a>
+          <a class="book-btn" href="books/reb/s6/book12.pdf" target="_blank">Book 12</a>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TSS -->
+  <details>
+    <summary>TSS</summary>
+    <div class="levels">
+      <div>
+        <div class="level-title">S4</div>
+        <div class="books-grid">
+          <a class="book-btn" href="books/tss/s4/book01.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/tss/s4/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/tss/s4/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/tss/s4/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/tss/s4/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/tss/s4/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/tss/s4/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/tss/s4/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/tss/s4/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/tss/s4/book10.pdf" target="_blank">Book 10</a>
+          <a class="book-btn" href="books/tss/s4/book11.pdf" target="_blank">Book 11</a>
+          <a class="book-btn" href="books/tss/s4/book12.pdf" target="_blank">Book 12</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="level-title">S5</div>
+        <div class="books-grid">
+          <a class="book-btn" href="books/tss/s5/book01.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/tss/s5/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/tss/s5/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/tss/s5/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/tss/s5/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/tss/s5/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/tss/s5/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/tss/s5/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/tss/s5/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/tss/s5/book10.pdf" target="_blank">Book 10</a>
+          <a class="book-btn" href="books/tss/s5/book11.pdf" target="_blank">Book 11</a>
+          <a class="book-btn" href="books/tss/s5/book12.pdf" target="_blank">Book 12</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="level-title">S6</div>
+        <div class="books-grid">
+          <a class="book-btn" href="books/tss/s6/book01.pdf" target="_blank">Book 1</a>
+          <a class="book-btn" href="books/tss/s6/book02.pdf" target="_blank">Book 2</a>
+          <a class="book-btn" href="books/tss/s6/book03.pdf" target="_blank">Book 3</a>
+          <a class="book-btn" href="books/tss/s6/book04.pdf" target="_blank">Book 4</a>
+          <a class="book-btn" href="books/tss/s6/book05.pdf" target="_blank">Book 5</a>
+          <a class="book-btn" href="books/tss/s6/book06.pdf" target="_blank">Book 6</a>
+          <a class="book-btn" href="books/tss/s6/book07.pdf" target="_blank">Book 7</a>
+          <a class="book-btn" href="books/tss/s6/book08.pdf" target="_blank">Book 8</a>
+          <a class="book-btn" href="books/tss/s6/book09.pdf" target="_blank">Book 9</a>
+          <a class="book-btn" href="books/tss/s6/book10.pdf" target="_blank">Book 10</a>
+          <a class="book-btn" href="books/tss/s6/book11.pdf" target="_blank">Book 11</a>
+          <a class="book-btn" href="books/tss/s6/book12.pdf" target="_blank">Book 12</a>
+        </div>
+      </div>
+    </div>
+  </details>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FREE-SHARE</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    /* Turquoise gradient background */
+    background: linear-gradient(135deg, #00C2CB 40%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-brand { font-weight: 600; letter-spacing: 1px; }
+
+  .login-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 15px;
+  }
+
+  .login-box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .role-buttons { text-align: center; margin-bottom: 20px; }
+  .role-buttons button {
+    margin: 0 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #fff;
+    background: #00C2CB; /* turquoise */
+    transition: background 0.2s, transform 0.2s;
+  }
+  .role-buttons button:hover { background: #00AAB2; transform: scale(1.05); }
+
+  .form-section { display: none; margin-top: 20px; }
+  .register-section, .forgot-section { display: none; margin-top: 20px; }
+
+  h4, h5 { color: #00C2CB; }
+
+  .btn-primary {
+    background: #00C2CB;
+    border: none;
+  }
+  .btn-primary:hover {
+    background: #00AAB2;
+  }
+
+  .btn-success { background: #198754; border: none; }
+  .btn-success:hover { background: #157347; }
+
+  .btn-warning { background: #ffc107; border: none; color: #000; }
+  .btn-warning:hover { background: #e0a800; }
+
+  footer {
+    background: #00C2CB;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+  }
+  a{
+    text-decoration: none;
+    color: #0059ff;
+    font-weight: 800;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">EduPortal</a>
+  </div>
+</nav> -->
+
+<!-- Main Content -->
+<div class="login-container">
+  <div class="login-box">
+    <h3 class="text-center mb-4">Login Portal</h3>
+
+    <!-- Role Buttons -->
+    <div class="role-buttons">
+      <button onclick="showForm('studentForm')">Student</button>
+      <button onclick="showForm('teacherForm')">Teacher</button>
+      <button onclick="showForm('adminForm')">Admin</button>
+    </div>
+
+    <!-- Student Form -->
+    <div id="studentForm" class="form-section">
+      <h4>Student Login</h4>
+      <form action="page.html" method="post">
+        <div class="mb-3"><input type="email" name="student_email" class="form-control" placeholder="Email" required></div>
+        <div class="mb-3"><input type="password" name="student_password" class="form-control" placeholder="Password" required></div>
+        <button type="submit" class="btn btn-primary w-100"><a href="home.html">Login</a></button>
+      </form>
+      <div class="text-center mt-3">
+        <button class="btn btn-link text-primary" onclick="showRegister('studentRegister')">Create Account</button> |
+        <button class="btn btn-link text-primary" onclick="showForgot('studentForgot')">Forgot Password?</button>
+      </div>
+      <!-- Register -->
+      <div id="studentRegister" class="register-section">
+        <h5>Create Student Account</h5>
+        <form action="student_register.php" method="post">
+          <div class="mb-3"><input type="text" name="student_name" class="form-control" placeholder="Full Name" required></div>
+          <div class="mb-3"><input type="email" name="student_email" class="form-control" placeholder="Email" required></div>
+          <div class="mb-3"><input type="password" name="student_password" class="form-control" placeholder="Password" required></div>
+          <button type="submit" class="btn btn-success w-100">Register</button>
+        </form>
+      </div>
+      <!-- Forgot -->
+      <div id="studentForgot" class="forgot-section">
+        <h5>Reset Password</h5>
+        <form action="student_forgot.php" method="post">
+          <div class="mb-3"><input type="email" name="student_email" class="form-control" placeholder="Enter your email" required></div>
+          <button type="submit" class="btn btn-warning w-100">Send Reset Link</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Teacher Form -->
+    <div id="teacherForm" class="form-section">
+      <h4>Teacher Login</h4>
+      <form action="page.html" method="post">
+        <div class="mb-3"><input type="text" name="teacher_id" class="form-control" placeholder="Teacher ID" required></div>
+        <div class="mb-3"><input type="password" name="teacher_password" class="form-control" placeholder="Password" required></div>
+        <button type="submit" class="btn btn-primary w-100"><a href="home.html">Login</a></button>
+      </form>
+      <div class="text-center mt-3">
+        <button class="btn btn-link text-primary" onclick="showRegister('teacherRegister')">Create Account</button> |
+        <button class="btn btn-link text-primary" onclick="showForgot('teacherForgot')">Forgot Password?</button>
+      </div>
+      <!-- Register -->
+      <div id="teacherRegister" class="register-section">
+        <h5>Create Teacher Account</h5>
+        <form action="teacher_register.php" method="post">
+          <div class="mb-3"><input type="text" name="teacher_name" class="form-control" placeholder="Full Name" required></div>
+          <div class="mb-3"><input type="text" name="teacher_subject" class="form-control" placeholder="Subject" required></div>
+          <div class="mb-3"><input type="email" name="teacher_email" class="form-control" placeholder="Email" required></div>
+          <div class="mb-3"><input type="password" name="teacher_password" class="form-control" placeholder="Password" required></div>
+          <button type="submit" class="btn btn-success w-100">Register</button>
+        </form>
+      </div>
+      <!-- Forgot -->
+      <div id="teacherForgot" class="forgot-section">
+        <h5>Reset Password</h5>
+        <form action="page.html" method="post">
+          <div class="mb-3"><input type="email" name="teacher_email" class="form-control" placeholder="Enter your email" required></div>
+          <button type="submit" class="btn btn-warning w-100">Send Reset Link</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Form -->
+    <div id="adminForm" class="form-section">
+      <h4>Admin Login</h4>
+      <form action="home.html" method="post">
+        <div class="mb-3"><input type="text" name="admin_id" class="form-control" placeholder="Admin ID" required></div>
+        <div class="mb-3"><input type="password" name="admin_password" class="form-control" placeholder="Password" required></div>
+        <button type="submit" class="btn btn-primary w-100"><a href="home.html">Login</a></button>
+      </form>
+      <div class="text-center mt-3">
+        <button class="btn btn-link text-primary" onclick="showRegister('adminRegister')">Create Account</button> |
+        <button class="btn btn-link text-primary" onclick="showForgot('adminForgot')">Forgot Password?</button>
+      </div>
+      <!-- Register -->
+      <div id="adminRegister" class="register-section">
+        <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script>
+  // Show the selected role form (Student, Teacher, Admin)
+  function showForm(formId) {
+    // Hide all role forms
+    document.querySelectorAll('.form-section').forEach(section => {
+      section.style.display = 'none';
+    });
+    // Hide all register/forgot sections when switching roles
+    document.querySelectorAll('.register-section, .forgot-section').forEach(section => {
+      section.style.display = 'none';
+    });
+    // Show the chosen form
+    document.getElementById(formId).style.display = 'block';
+  }
+
+  // Show the registration form inside the selected role
+  function showRegister(registerId) {
+    // Hide any other register/forgot sections first
+    document.querySelectorAll('.register-section, .forgot-section').forEach(section => {
+      section.style.display = 'none';
+    });
+    // Show the chosen register form
+    document.getElementById(registerId).style.display = 'block';
+  }
+
+  // Show the forgot password form inside the selected role
+  function showForgot(forgotId) {
+    // Hide any other register/forgot sections first
+    document.querySelectorAll('.register-section, .forgot-section').forEach(section => {
+      section.style.display = 'none';
+    });
+    // Show the chosen forgot form
+    document.getElementById(forgotId).style.display = 'block';
+  }
+</script>

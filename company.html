@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FREE-SHARE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(120deg,#22c1c3,#9ee7f0);
+}
+
+/* MAIN CARD */
+.container{
+  background:#fff;
+  width:80%;
+  max-width:900px;
+  border-radius:16px;
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  font-size:26px;
+  font-weight:700;
+  color:#00bfa5;
+  margin-bottom:25px;
+}
+.header span{font-size:28px;margin-right:10px}
+
+/* ACCORDION */
+.accordion-item{
+  border:1px solid #eee;
+  border-radius:10px;
+  margin-bottom:12px;
+  overflow:hidden;
+}
+
+.accordion-header{
+  padding:14px 18px;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#fff;
+}
+
+.accordion-header:hover{
+  background:#f3fdfb;
+}
+
+.accordion-content{
+  padding:15px 25px;
+  display:none;
+  background:#fafafa;
+}
+
+/* DISTRICT */
+.district{
+  margin-bottom:12px;
+}
+
+.district-title{
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+/* COMPANY CARD */
+.company{
+  padding:10px 14px;
+  background:#fff;
+  border-radius:8px;
+  margin-bottom:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+.company small{color:#555}
+/* Make body padding safe on small screens */
+body {
+  padding: 10px;
+}
+
+/* Books container responsiveness */
+.books-box {
+  padding: 30px 20px;
+}
+
+/* Title scaling */
+.books-box h2 {
+  font-size: clamp(1.3rem, 4vw, 2rem);
+}
+
+/* Details box spacing */
+details {
+  padding: 10px;
+}
+
+/* Level layout – stack nicely on small screens */
+.levels {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+/* Books grid auto wrap */
+.books-grid {
+  gap: 6px;
+}
+
+/* Book buttons responsive size */
+.book-btn {
+  width: 70px;
+  height: 70px;
+  font-size: 12px;
+}
+
+/* Phones (small screens) */
+@media (max-width: 576px) {
+  .books-box {
+    padding: 20px 14px;
+  }
+
+  summary {
+    font-size: 14px;
+  }
+
+  .level-title {
+    font-size: 13px;
+  }
+
+  .book-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 11px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .book-btn {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .books-box {
+    max-width: 1100px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <span>🏢</span> FREE-SHARE Companies
+  </div>
+
+  <!-- NORTHERN -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggle(this)">
+      ▶ Northern Province
+    </div>
+    <div class="accordion-content">
+
+      <div class="district">
+        <div class="district-title">Musanze</div>
+        <div class="company">
+          <strong>Musanze Tech Ltd</strong><br>
+          <small>📞 0788123456 | 📍 Musanze Town</small>
+        </div>
+        <div class="company">
+          <strong>Volcano Builders</strong><br>
+          <small>📞 0722113344 | 📍 Kinigi</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SOUTHERN -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggle(this)">
+      ▶ Southern Province
+    </div>
+    <div class="accordion-content">
+
+      <div class="district">
+        <div class="district-title">Huye</div>
+        <div class="company">
+          <strong>Huye Foods</strong><br>
+          <small>📞 0799988776 | 📍 Huye City</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EASTERN -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggle(this)">
+      ▶ Eastern Province
+    </div>
+    <div class="accordion-content">
+
+      <div class="district">
+        <div class="district-title">Rwamagana</div>
+        <div class="company">
+          <strong>Eastern Logistics</strong><br>
+          <small>📞 0733445566 | 📍 Rwamagana</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WESTERN -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggle(this)">
+      ▶ Western Province
+    </div>
+    <div class="accordion-content">
+
+      <div class="district">
+        <div class="district-title">Rubavu</div>
+        <div class="company">
+          <strong>Lake Kivu Resort</strong><br>
+          <small>📞 0788990011 | 📍 Rubavu</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggle(header){
+  const content = header.nextElementSibling;
+  const isOpen = content.style.display === "block";
+
+  document.querySelectorAll(".accordion-content").forEach(c=>{
+    c.style.display="none";
+  });
+
+  if(!isOpen){
+    content.style.display="block";
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FREE-SHARE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:linear-gradient(120deg,#12c2b1,#7ee8fa);
+}
+
+.container{
+  max-width:1300px;
+  margin:40px auto;
+  background:#fff;
+  border-radius:18px;
+  padding:35px;
+  box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+h1{
+  text-align:center;
+  color:#12bfa5;
+  margin-bottom:30px;
+}
+
+/* PROVINCES */
+.provinces{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:center;
+  margin-bottom:35px;
+}
+
+.province-btn{
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background:#0d6efd;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.province-btn:hover{
+  background:#0b5ed7;
+}
+
+/* DISTRICTS */
+.districts{
+  display:none;
+  flex-wrap:wrap;
+  gap:22px;
+  justify-content:center;
+}
+
+.district-card{
+  width:210px;
+  background:#f8f9fa;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  text-align:center;
+}
+
+.district-card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.district-card a{
+  display:block;
+  padding:12px;
+  text-decoration:none;
+  font-weight:600;
+  color:#0d6efd;
+}
+
+.district-card a:hover{
+  text-decoration:underline;
+}
+.district{
+    margin-left: 500px;
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10);
+    margin-bottom: 6px;
+}
+.distr img{
+  width: 250px;
+  height: 200px; 
+  border-radius: 10px;  
+  background-color: #ffff;
+}
+.di a{
+    margin-left: 70px;
+    text-decoration: none;
+    color: #410dfd;
+    font-weight: 600;
+}
+.di{
+ margin-top: 5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>🏫 Rwanda Schools Directory</h1>
+
+<!-- PROVINCES -->
+<div class="provinces">
+  <button class="province-btn" onclick="show('kigali')">Kigali City</button>
+  <button class="province-btn" onclick="show('north')">Northern Province</button>
+  <button class="province-btn" onclick="show('south')">Southern Province</button>
+  <button class="province-btn" onclick="show('east')">Eastern Province</button>
+  <button class="province-btn" onclick="show('west')">Western Province</button>
+</div>
+       <div class="district">
+        <div class="distr">
+            <img src="school.jpg" alt="">
+        </div>
+        <div class="di">
+            <a href="#">Visit Our Schools</a>
+        </div>
+       </div> 
+<!-- ================= KIGALI CITY ================= -->
+<div class="districts" id="kigali">
+  <div class="district-card"><img src="images/gasabo.jpg"><a href="#">Gasabo Schools</a></div>
+  <div class="district-card"><img src="images/kicukiro.jpg"><a href="#">Kicukiro Schools</a></div>
+  <div class="district-card"><img src="images/nyarugenge.jpg"><a href="#">Nyarugenge Schools</a></div>
+</div>
+
+<!-- ================= NORTHERN ================= -->
+<div class="districts" id="north">
+  <div class="district-card"><img src="images/burera.jpg"><a href="#">Burera Schools</a></div>
+  <div class="district-card"><img src="images/gakenke.jpg"><a href="#">Gakenke Schools</a></div>
+  <div class="district-card"><img src="images/gicumbi.jpg"><a href="#">Gicumbi Schools</a></div>
+  <div class="district-card"><img src="images/musanze.jpg"><a href="#">Musanze Schools</a></div>
+  <div class="district-card"><img src="images/rulindo.jpg"><a href="#">Rulindo Schools</a></div>
+</div>
+
+<!-- ================= SOUTHERN ================= -->
+<div class="districts" id="south">
+  <div class="district-card"><img src="images/gisagara.jpg"><a href="#">Gisagara Schools</a></div>
+  <div class="district-card"><img src="images/huye.jpg"><a href="#">Huye Schools</a></div>
+  <div class="district-card"><img src="images/kamonyi.jpg"><a href="#">Kamonyi Schools</a></div>
+  <div class="district-card"><img src="images/muhanga.jpg"><a href="#">Muhanga Schools</a></div>
+  <div class="district-card"><img src="images/nyamagabe.jpg"><a href="#">Nyamagabe Schools</a></div>
+  <div class="district-card"><img src="images/nyanza.jpg"><a href="#">Nyanza Schools</a></div>
+  <div class="district-card"><img src="images/nyaruguru.jpg"><a href="#">Nyaruguru Schools</a></div>
+  <div class="district-card"><img src="images/ruhango.jpg"><a href="#">Ruhango Schools</a></div>
+</div>
+
+<!-- ================= EASTERN ================= -->
+<div class="districts" id="east">
+  <div class="district-card"><img src="images/bugesera.jpg"><a href="#">Bugesera Schools</a></div>
+  <div class="district-card"><img src="images/gatsibo.jpg"><a href="#">Gatsibo Schools</a></div>
+  <div class="district-card"><img src="images/kayonza.jpg"><a href="#">Kayonza Schools</a></div>
+  <div class="district-card"><img src="images/kirehe.jpg"><a href="#">Kirehe Schools</a></div>
+  <div class="district-card"><img src="images/ngoma.jpg"><a href="#">Ngoma Schools</a></div>
+  <div class="district-card"><img src="images/nyagatare.jpg"><a href="#">Nyagatare Schools</a></div>
+  <div class="district-card"><img src="images/rwamagana.jpg"><a href="#">Rwamagana Schools</a></div>
+</div>
+
+<!-- ================= WESTERN ================= -->
+<div class="districts" id="west">
+  <div class="district-card"><img src="images/karongi.jpg"><a href="#">Karongi Schools</a></div>
+  <div class="district-card"><img src="images/ngororero.jpg"><a href="#">Ngororero Schools</a></div>
+  <div class="district-card"><img src="images/nyabihu.jpg"><a href="#">Nyabihu Schools</a></div>
+  <div class="district-card"><img src="images/nyamasheke.jpg"><a href="#">Nyamasheke Schools</a></div>
+  <div class="district-card"><img src="images/rubavu.jpg"><a href="#">Rubavu Schools</a></div>
+  <div class="district-card"><img src="images/rusizi.jpg"><a href="#">Rusizi Schools</a></div>
+  <div class="district-card"><img src="images/rutsiro.jpg"><a href="#">Rutsiro Schools</a></div>
+</div>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.districts')
+    .forEach(d => d.style.display = 'none');
+  document.getElementById(id).style.display = 'flex';
+}
+</script>
+
+</body>
+</html>

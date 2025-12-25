@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FREE-SHARE </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:#f6f7f9;
+}
+
+/* SIDEBAR */
+.sidebar{
+  position:fixed;
+  top:0; left:0;
+  width:200px;
+  height:100vh;
+  background:#fff;
+  border-right:1px solid #ddd;
+  padding:20px 12px;
+}
+.sidebar h4{
+  color:#00bfa5;
+  font-weight:700;
+  margin-bottom:30px;
+}
+.sidebar a{
+  display:block;
+  padding:10px 12px;
+  margin-bottom:6px;
+  text-decoration:none;
+  color:#333;
+  border-radius:8px;
+}
+.sidebar a:hover,
+.sidebar a.active{
+  background:#00bfa5;
+  color:#fff;
+}
+
+/* TOP BAR */
+.top-bar{
+  position:fixed;
+  top:0; left:200px; right:0;
+  height:56px;
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  padding:0 24px;
+}
+
+/* MAIN */
+.main{
+  margin-left:200px;
+  padding:80px 30px 30px;
+  max-width:900px;
+}
+
+/* PROFILE HEADER */
+.profile-header{
+  background:#fff;
+  border-radius:14px;
+  padding:20px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  margin-bottom:25px;
+}
+.profile-header img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+}
+.profile-header h5{
+  margin:0;
+  font-weight:600;
+}
+.profile-header p{
+  margin:0;
+  font-size:14px;
+  color:#666;
+}
+
+/* CREATE POST */
+.create-post{
+  background:#fff;
+  border-radius:14px;
+  padding:15px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  margin-bottom:25px;
+}
+.create-post textarea{
+  width:100%;
+  border-radius:10px;
+  border:1px solid #ccc;
+  padding:10px;
+  resize:none;
+}
+.create-post button{
+  margin-top:10px;
+  background:#0d6efd;
+  color:#fff;
+  border:none;
+  padding:8px 18px;
+  border-radius:20px;
+}
+
+/* POST */
+.post{
+  background:#fff;
+  border-radius:14px;
+  padding:15px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  margin-bottom:20px;
+}
+.post-header{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-bottom:10px;
+}
+.post-header img{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+.post-header h6{
+  margin:0;
+  font-size:14px;
+  font-weight:600;
+}
+.post p{
+  font-size:14px;
+  display: block;
+}
+.post img{
+  height: 50%;
+  width:50%;
+  border-radius:10px;
+  margin-top:10px;
+}
+.post-actions{
+  margin-top:10px;
+}
+.post-actions button{
+  border:none;
+  background:none;
+  color:#0d6efd;
+  font-weight:600;
+  cursor:pointer;
+}
+.nav-icons a { text-decoration: none; color: #333; font-weight: 500; margin-left: 20px; padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s, color 0.3s; }
+    .nav-icons a:hover { background-color: #00bfa5; color: #fff; }
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h4>FREE-SHARE</h4>
+  <a href="page.html">🏠 Home</a>
+  <a href="book.html">📚 Books</a>
+  <a href="reel.html">🎬 Reels</a>
+  <a href="explore.html">🎥 Explore</a>
+  <a href="school.html">🏫 Schools</a>
+  <a href="past.html">📄 Past Papers</a>
+  <a href="company.html">🏢 Company</a>
+  <a href="notification.html">❤️ Notifications</a>
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar d-flex justify-content-between align-items-center">
+  <div></div>
+  <div class="nav-icons">
+    <a href="profile.html">👤 Profile</a>
+    <a href="message.html">💬 Messages</a>
+    <a href="setting.html">⚙️ Settings</a>
+  </div>
+</div>
+<!-- MAIN -->
+<div class="main">
+
+  <!-- PROFILE HEADER -->
+  <div class="profile-header">
+    <img src="school.jpg">
+    <div>
+      <h5>John Doe</h5>
+      <p>Student | FREE-SHARE Member</p>
+    </div>
+  </div>
+
+  <!-- CREATE POST -->
+  <div class="create-post">
+    <textarea id="postText" rows="3" placeholder="What's on your mind?"></textarea>
+    <button onclick="addPost()">Post</button>
+  </div>
+
+  <!-- POSTS -->
+  <div id="posts">
+
+    <div class="post">
+      <div class="post-header">
+        <img src="school.jpg">
+        <h6>John Doe</h6>
+      </div>
+      <p>Welcome to my FREE-SHARE profile!</p>
+      <div class="post-actions">
+        <button onclick="likePost(this)">👍 Like (<span>0</span>)</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function addPost(){
+  const text=document.getElementById("postText");
+  if(text.value.trim()==="") return;
+
+  const post=document.createElement("div");
+  post.className="post";
+  post.innerHTML=`
+    <div class="post-header">
+      <img src="https://i.imgur.com/6VBx3io.png">
+      <h6>John Doe</h6>
+    </div>
+    <p>${text.value}</p>
+    <div class="post-actions">
+      <button onclick="likePost(this)">👍 Like (<span>0</span>)</button>
+    </div>
+  `;
+
+  document.getElementById("posts").prepend(post);
+  text.value="";
+}
+
+function likePost(btn){
+  const span=btn.querySelector("span");
+  span.innerText=parseInt(span.innerText)+1;
+}
+</script>
+
+</body>
+</html>
