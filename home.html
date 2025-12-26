@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FREE-SHARE </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+
+
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar-nav">
+  <div class="logo-section">FREE-SHARE</div>
+  <ul class="nav-list">
+    <li><a href="home.html">🏠 Home</a></li>
+    <li><a href="book.html">📚 Books</a></li>
+    <li><a href="reel.html">🎬 Reels</a></li>
+    <li><a href="explore.html">🧭 Explore</a></li>
+    <li><a href="school.html">🏫 Schools</a></li>
+    <li><a href="past.html">📄 Past Papers</a></li>
+    <li><a href="company.html">🏢 Company</a></li>
+    <li><a href="notification.html">❤️ Notifications</a></li>
+  </ul>
+</div>
+
+<!-- Top Bar -->
+<div class="top-bar d-flex justify-content-between align-items-center">
+  <div></div>
+  <div class="nav-icons">
+    <a href="profile.html">👤 Profile</a>
+    <a href="message.html">💬 Messages</a>
+    <a href="setting.html">⚙️ Settings</a>
+  </div>
+</div>
+
+<!-- Dashboard -->
+<div class="dashboard">
+
+  <!-- Search Bar -->
+  <div class="search-wrap">
+    <input id="searchInput" type="text" class="form-control search-input" placeholder="Search videos...">
+    <button id="resetSearch" class="btn btn-outline-secondary">Reset</button>
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="category-tabs" id="tabs">
+    <div class="category-tab active" data-category="All">All</div>
+    <div class="category-tab" data-category="Music">Unit & Assessment</div>
+    <div class="category-tab" data-category="Gaming">Books</div>
+    <div class="category-tab" data-category="Education">Videos</div>
+    <div class="category-tab" data-category="Live">Assessment</div>
+    <div class="category-tab" data-category="Sketch Comedy">Challenge</div>
+    <div class="category-tab" data-category="Highlights">Past Exam Papers</div>
+  </div>
+
+  <!-- Video Grid -->
+  <div class="video-grid" id="videoGrid">
+    <div class="video-card" data-title="LARVA SEASON 3 EP 181–288" data-category="Education" data-src="video/luna.mp4">
+      <img src="img/cat-4.jpg">
+      <div class="video-info">
+        <h6>LARVA SEASON 3 EP 181–288</h6>
+        <p>SMToon Türkçe · 5.1M views · 4 months ago</p>
+      </div>
+    </div>
+    <div class="video-card" data-title="My Mix – Okkama, EleééH" data-category="Music" data-src="video/xxx.mp4">
+      <img src="img/course-1.jpg" alt="My Mix">
+      <div class="video-info">
+        <h6>My Mix – Okkama, EleééH</h6>
+        <p>Personalized Playlist · Updated Daily</p>
+      </div>
+    </div>
+    <div class="video-card" data-title="Neymar Does the UNTHINKABLE!" data-category="Highlights" data-src="video/yes.mp4">
+      <img src="img/cat-2.jpg" alt="Neymar">
+      <div class="video-info">
+        <h6>Neymar Does the UNTHINKABLE!</h6>
+        <p>SoccerShowdowns · 50 views · 2 days ago</p>
+      </div>
+    </div>
+    <div class="video-card" data-title="Neymar Does the UNTHINKABLE!" data-category="Highlights" data-src="video/yes.mp4">
+      <img src="img/cat-2.jpg" alt="Neymar">
+      <div class="video-info">
+        <h6>Neymar Does the UNTHINKABLE!</h6>
+        <p>SoccerShowdowns · 50 views · 2 days ago</p>
+      </div>
+    </div>
+    <div class="video-card" data-title="Neymar Does the UNTHINKABLE!" data-category="Highlights" data-src="video/yes.mp4">
+      <img src="img/cat-2.jpg" alt="Neymar">
+      <div class="video-info">
+        <h6>Neymar Does the UNTHINKABLE!</h6>
+        <p>SoccerShowdowns · 50 views · 2 days ago</p>
+      </div>
+    </div>
+    <div class="video-card" data-title="Neymar Does the UNTHINKABLE!" data-category="Highlights" data-src="yes.mp4">
+      <img src="img/cat-2.jpg" alt="Neymar">
+      <div class="video-info">
+        <h6>Neymar Does the UNTHINKABLE!</h6>
+        <p>SoccerShowdowns · 50 views · 2 days ago</p>
+      </div>
+    </div>
+    <div class="video-card" data-title="Neymar Does the UNTHINKABLE!" data-category="Highlights" data-src="video/yes.mp4">
+      <img src="img/cat-2.jpg" alt="Neymar">
+      <div class="video-info">
+        <h6>Neymar Does the UNTHINKABLE!</h6>
+        <p>SoccerShowdowns · 50 views · 2 days ago</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <video id="modalVideo" controls autoplay style="width:100%; height:auto; border-radius:8px;">
+          <source src="" type="video/mp4">
+          Your browser does not support video.
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Tab filtering
+  const tabs = document.querySelectorAll('.category-tab');
+  const videos = document.querySelectorAll('#videoGrid .video-card');
+
+  function setActiveTab(clicked) {
+    tabs.forEach(t => t.classList.remove('active'));
+    clicked.classList.add('active');
+  }
+
+  function filterByCategory(category) {
+    const match = (el) => {
+      const c = el.getAttribute('data-category');
+      return category === 'All' || c === category;
+    };
+    videos.forEach(v => v.classList.toggle('hidden', !match(v)));
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      setActiveTab(tab);
+      filterByCategory(tab.dataset.category);
+      document.getElementById('searchInput').value = '';
+    });
+  });
+
+   // Search filtering
+  const searchInput = document.getElementById('searchInput');
+  const resetBtn = document.getElementById('resetSearch');
+
+  function filterBySearch(query) {
+    const q = query.trim().toLowerCase();
+    const matchTitle = (el) => el.getAttribute('data-title').toLowerCase().includes(q);
+    videos.forEach(v => v.classList.toggle('hidden', !matchTitle(v)));
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    const q = e.target.value;
+    filterBySearch(q);
+  });
+
+  resetBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    // Reset to current tab filter
+    const activeTab = document.querySelector('.category-tab.active');
+    filterByCategory(activeTab ? activeTab.dataset.category : 'All');
+  });
+
+  // Video click: open modal
+  const modalVideo = document.getElementById('modalVideo');
+  const videoCards = document.querySelectorAll('.video-card');
+
+  videoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const videoSrc = card.getAttribute('data-src');
+      modalVideo.querySelector('source').src = videoSrc;
+      modalVideo.load();
+      const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+      modal.show();
+    });
+  });
+
+  // Initialize default view
+  filterByCategory('All');
+</script>
