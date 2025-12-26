@@ -1,4 +1,4 @@
-    body { background-color: #f5f6fa; font-family: 'Segoe UI', sans-serif; margin: 0; }
+    body { background-color: #f5f6fa; font-family: 'Segoe UI', sans-serif; margin: 0; font-size: 16px;}
     .sidebar-nav { position: fixed; top: 0; left: 0; width: 180px; height: 100vh; background-color: #fff; border-right: 1px solid #ddd; padding: 20px 10px; z-index: 1000; }
     .logo-section { font-weight: bold; font-size: 18px; color: #00bfa5; margin-bottom: 30px; }
     .nav-list { list-style: none; padding: 0; }
@@ -25,4 +25,35 @@
     .video-info p { font-size: 13px; color: #555; margin: 0; }
 
     .hidden { display: none !important; }
-/* ================= GLOBAL ================= */
+
+@media screen and (min-width:768px) {
+  .video-card {
+    width: 250px;
+}
+}
+@media  screen and (min-width:480px) {
+  .sidebar-nav {
+    left: -40px;
+}
+.logo-section {
+    margin-left: 50px;
+}
+.nav-list {
+    margin-left: 72px;
+}
+.nav-list a {
+    font-size: small;
+     padding: 8px 1px;
+}
+*, ::after, ::before {
+    margin-left: -10px;
+}
+.nav-icons a {
+    font-size: small;
+    padding: 0px;
+}
+.category-tab {
+    font-size: smaller;
+    padding: 8px 10px;
+}
+}
